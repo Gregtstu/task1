@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
 
-html {
+:root {
   box-sizing: border-box;
   --main-bg-color: #fff;
   --title-and-price-text-color: #000000;
@@ -14,11 +18,6 @@ html {
   --border-color:#8E8E8E;
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: Open Sans, sans-serif;
@@ -31,8 +30,8 @@ img {
 }
 
 .container{
-  border: 1px solid red;
-  max-width: 1440px;
+  max-width: 1455px;
+  padding: 0 16px;
 }
 
 li{
