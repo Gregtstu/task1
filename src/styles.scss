@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+html {
+  box-sizing: border-box;
+  --main-bg-color: #fff;
+  --title-and-price-text-color: #000000;
+  --duration-clocks-color: #9E9E9E;
+  --information-text-color: #343434;
+  --information-instruments-bg-color: #FFD83C;
+  --information-instruments-bghover-color: #decc8d;
+  --information-instruments-text-color: #292929;
+  --time-voyage-bg-color:#C5DCFF;
+  --time-voyage-hover-bg-color: #6BA6FF;
+  --border-color:#8E8E8E;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Open Sans, sans-serif;
+  background-color: var(--main-bg-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container{
+  border: 1px solid red;
+  max-width: 1440px;
+}
+
+li{
+  list-style: none;
+}
+
