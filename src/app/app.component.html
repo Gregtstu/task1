@@ -10,15 +10,14 @@
 <body>
 <section class="excursions">
   <div class="container">
-    <ul class="excursions__list">
+    <ul class="excursions__list" *ngFor="let card of AllCards">
       <li class="excursions__item cards">
-        <img class="cards__img" src="../assets/img/img1.png" alt="img1">
+        <img class="cards__img" src="{{card.img}}" alt="img1">
         <div class="cards__text">
-          <h2 class="cards__text-title">Обзорная экскурсия по рекам и каналам
-            с остановками Hop on Hop Off 2020</h2>
+          <h2 class="cards__text-title">{{card.title}}</h2>
           <div class="cards__text-duration duration">
             <img class="duration__img" src="../assets/img/duration-clocks.svg" alt="duration-clocks">
-            <span class="duration__clocks">2 часа</span>
+            <span class="duration__clocks">{{card.duration}}</span>
           </div>
           <ul class="cards__text-description description">
             <li class="description__item">Билет на целый день</li>
@@ -26,18 +25,15 @@
             <li class="description__item">6 остановок у главных достопримечательностей</li>
             <li class="description__item times">
               <p class="times__text">Ближайший рейс сегодня</p>
-              <ul class="times__list">
-                <li class="times__item">12-00</li>
-                <li class="times__item">12-00</li>
-                <li class="times__item">12-00</li>
-                <li class="times__item">12-00</li>
+              <ul class="times__list" *ngFor="let time of card.times">
+                <li class="times__item">{{time}}</li>
               </ul>
             </li>
           </ul>
           <div class="cards__text-information information">
               <div class="information__price">
-                <div class="information__price-main">900 &#8381;</div>
-                <div class="information__price-additionally">1200 &#8381; на причале</div>
+                <div class="information__price-main">{{card.price}} &#8381;</div>
+                <div class="information__price-additionally" *ngIf="card.additionallyPrice">{{card.additionallyPrice}} &#8381; на причале</div>
               </div>
               <button class="information__btn">Подробнее</button>
             </div>
