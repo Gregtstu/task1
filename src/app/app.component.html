@@ -10,7 +10,7 @@
 <body>
 <section class="excursions">
   <div class="container">
-    <ul class="excursions__list" *ngFor="let card of AllCards">
+    <ul class="excursions__list" *ngFor="let card of allCards">
       <li class="excursions__item cards">
         <img class="cards__img" src="{{card.img}}" alt="img1">
         <div class="cards__text">
@@ -25,18 +25,29 @@
             <li class="description__item">6 остановок у главных достопримечательностей</li>
             <li class="description__item times">
               <p class="times__text">Ближайший рейс сегодня</p>
-              <ul class="times__list" *ngFor="let time of card.times">
-                <li class="times__item">{{time}}</li>
+              <ul class="times__list" *ngFor="let cardTime of card.times">
+                <li class="times__item" *ngIf="card.times.length < 5">{{cardTime.time}}</li>
+              </ul>
+              <ul class="time__list" *ngIf="card.times.length > 5 && card.timesFlag">
+                <li  class="time">{{manyTames[0].time}}</li>
+                <li  class="time">{{manyTames[1].time}}</li>
+                <li  class="time">{{manyTames[2].time}}</li>
+                <li  class="time" (click)="showAllTimes(card.id)">ещё...</li>
+              </ul>
+              <ul class="time__list" *ngFor="let cardTime of card.times">
+                <li class="time" *ngIf="card.times.length > 5 && !card.timesFlag">{{cardTime.time}}</li>
               </ul>
             </li>
           </ul>
           <div class="cards__text-information information">
-              <div class="information__price">
-                <div class="information__price-main">{{card.price}} &#8381;</div>
-                <div class="information__price-additionally" *ngIf="card.additionallyPrice">{{card.additionallyPrice}} &#8381; на причале</div>
+            <div class="information__price">
+              <div class="information__price-main">{{card.price}} &#8381;</div>
+              <div class="information__price-additionally" *ngIf="card.additionallyPrice">{{card.additionallyPrice}}
+                &#8381; на причале
               </div>
-              <button class="information__btn">Подробнее</button>
             </div>
+            <button class="information__btn">Подробнее</button>
+          </div>
         </div>
 
       </li>

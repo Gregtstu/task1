@@ -8,10 +8,23 @@ import {AllCardsService} from "./services/all-cards.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  public AllCards!:ICard[];
-  constructor(private cards:AllCardsService) {
-  }
+  public allCards!:ICard[];
+  public manyTames!:any;
+
+  constructor(private cards:AllCardsService) {}
+
   ngOnInit() {
-    this.AllCards= this.cards.getAllCards();
+    this.allCards = this.cards.getAllCards();
+    this.allCards.forEach(item => {
+      this.manyTames = item.times;
+    });
+  }
+
+  showAllTimes(id:number):void {
+    this.allCards.map(item => {
+      if(item.id == id && item.timesFlag){
+        item.timesFlag = false;
+      }
+    });
   }
 }
